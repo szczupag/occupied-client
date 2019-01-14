@@ -71,6 +71,11 @@ function addToQueue(){
         data: username,
         success: function(data){
             console.log("[ADD]",data)
+            if(data.includes("already in the queue")>0){
+                $("#in-queue-err").show();
+            }else {
+                $("#in-queue-err").hide();
+            }
         }
     });
 }
@@ -129,6 +134,7 @@ $(document).ready(function(){
     $(".server-err").hide();
     $(".username-err").hide();
     $("#new-user-panel").hide();
+    $("#in-queue-err").hide();
 
     setInterval(()=>{InfiniteGetData()},2000);
 
@@ -151,7 +157,7 @@ $(document).ready(function(){
         $("#login-panel").show();
     });
 
-    $("#login-panel-btn").click(function(){
+    $("#login-panel-btn2").click(function(){
         $("#main-app").hide();
         $("#login-panel").show();
     });

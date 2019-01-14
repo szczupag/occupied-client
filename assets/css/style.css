@@ -175,9 +175,10 @@ p,div{
       margin-right: auto;
   }
 
+  #in-queue-err,
   #not-occupied,
   #queue p,
-  #server-err,
+  .server-err,
   #username-err{
     text-align: center;
   }
