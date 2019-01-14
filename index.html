@@ -20,6 +20,7 @@
 
     <div id="login-panel">
     <input type="button" id="new-user-btn" value="New user"></input>
+    <input type="button" id="delete-user-btn" value="Delete user"></input>
         <div class="container">
             <div class="content">
                 <img class="logo" src="assets/img/malinka.png" />
@@ -66,6 +67,21 @@
             </div>
         </div>
     </div>
+
+    <div id="delete-user-panel">
+        <input type="button" id="login-panel-btn3" value="Back"></input>
+            <div class="container">
+                <div class="content">
+                    <img class="logo" src="assets/img/malinka.png" />
+                    <h2><span style="color:rgb(130,31,60)">Delete </span>user</h2>
+                    <form id="login-form" action="" method="post">
+                        <input type="text" id="delete-user" placeholder="Username" required></input>
+                        <input type="button" id="delete" value="Delete"></input>
+                        <p class="server-err">Server connection error</p>
+                    </form>
+                </div>
+            </div>
+        </div>
 
     <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script> -->
     <script src="assets/js/script.js"></script>

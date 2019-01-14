@@ -18,8 +18,11 @@
 html,
 body{
     margin: 0;
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
 }
 
 body{
@@ -85,6 +88,7 @@ p,div{
     flex-direction: column;
 }
 
+#delete-user,
 #new-user,
 #uuid,
 #username{
@@ -99,6 +103,7 @@ p,div{
     margin-bottom: 12px;
 }
 
+#delete-user::placeholder,
 #new-user::placeholder,
 #uuid::placeholder,
 #username::placeholder{
@@ -106,7 +111,10 @@ p,div{
     text-transform: uppercase;
 }
 
+#delete,
+#delete-user-btn,
 #login-panel-btn2,
+#login-panel-btn3,
 #new-user-btn,
 #login-panel-btn,
 #register,
@@ -124,6 +132,13 @@ p,div{
     background-color: #fff; 
 }
 
+#delete:hover,
+#delete-user-btn:hover,
+#login-panel-btn2:hover,
+#login-panel-btn3:hover,
+#new-user-btn:hover,
+#login-panel-btn:hover,
+#register:hover,
 #add-btn:hover,
 #login:hover{
     background-color: transparent;
@@ -183,10 +198,17 @@ p,div{
     text-align: center;
   }
 
+  #delete-user-btn,
   #login-panel-btn2,
-  #login-panel-btn,
-  #new-user-btn{
+  #login-panel-btn3,
+  #login-panel-btn{
     position: absolute;
     top: 10px;
     right: 10px;
+  }
+
+  #new-user-btn{
+    position: absolute;
+    top: 10px;
+    left: 10px;
   }

@@ -2,6 +2,7 @@ const URL = 'https://occupied-server.herokuapp.com';
 let logged = false;
 let username = '';
 let newUser = '';
+let delUser = '';
 let uuid = '';
 let queueState;
 
@@ -88,12 +89,32 @@ function addNewUser(){
         contentType: "application/json",
         data: JSON.stringify({ name: newUser, uuid: uuidSplt }),
         success: function(data){
-            console.log("[ADD]",data)
+            console.log("[ADD]",data);
+            $("#new-user-panel").hide();
+            $("#login-panel").show();
+            $(".server-err").hide();
         }
     }).fail(function(err){
         $(".server-err").show();
     });
     console.log("[NEW]",newUser,uuidSplt);
+}
+
+function deleteUser(){
+    $.ajax({
+        type: 'DELETE',
+        url: URL+'/users',
+        contentType: "application/json",
+        data: delUser,
+        success: function(data){
+            console.log("[ADD]",data);
+            $("#delete-user-panel").hide();
+            $("#login-panel").show();
+            $(".server-err").hide();
+        }
+    }).fail(function(err){
+        $(".server-err").show();
+    });
 }
 
 function isOccupied(){
@@ -134,6 +155,7 @@ $(document).ready(function(){
     $(".server-err").hide();
     $(".username-err").hide();
     $("#new-user-panel").hide();
+    $("#delete-user-panel").hide();
     $("#in-queue-err").hide();
 
     setInterval(()=>{InfiniteGetData()},2000);
@@ -149,11 +171,13 @@ $(document).ready(function(){
 
     $("#new-user-btn").click(function(){
         $("#login-panel").hide();
+        $(".server-err").hide();
         $("#new-user-panel").show();
     });
 
     $("#login-panel-btn").click(function(){
         $("#new-user-panel").hide();
+        $(".server-err").hide();
         $("#login-panel").show();
     });
 
@@ -167,5 +191,23 @@ $(document).ready(function(){
         uuid = $('#uuid').val();
         addNewUser();
     })
+
+    $("#delete").click(function(){
+        delUser = $('#delete-user').val();
+        deleteUser();
+    })
+
+    $("#login-panel-btn3").click(function(){
+        $("#delete-user-panel").hide();
+        $(".server-err").hide();
+        $("#login-panel").show();
+    });
+
+    $("#delete-user-btn").click(function(){
+        $("#login-panel").hide();
+        $(".server-err").hide();
+        $("#delete-user-panel").show();
+    });
+
 
 });
