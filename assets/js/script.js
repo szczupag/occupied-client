@@ -151,7 +151,7 @@ $(document).ready(function(){
         $("#login-panel").show();
     });
 
-    $("#login-panel-btn").click(function(){
+    $("#login-panel-btn2").click(function(){
         $("#main-app").hide();
         $("#login-panel").show();
     });
