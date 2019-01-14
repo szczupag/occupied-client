@@ -1,0 +1,191 @@
+@font-face{
+    font-family: 'Custom Md';
+    src: url('../fonts/HelveticaNeueLTPro-Md.woff') format('woff');
+}
+@font-face{
+    font-family: 'Custom Th';
+    src: url('../fonts/HelveticaNeueLTPro-Th.woff') format('woff');
+}
+@font-face{
+    font-family: 'Custom Ul';
+    src: url('../fonts/HelveticaNeueLTPro-UltLt.woff') format('woff');
+}
+@font-face{
+    font-family: 'Baloo';
+    src: url('../fonts/Baloo-Regular.ttf');
+}
+
+html,
+body{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+body{
+    font-family: 'Custom Th';
+    overflow: hidden;
+    background-color: rgb(66, 130, 41)	 !important;
+}
+
+*{
+    text-shadow: none !important;
+}
+
+#login-panel h1{
+    animation: loginPanel 3s ease;
+}
+
+#login-panel h1 span{
+    animation: loginPanelPI 3s ease;
+}
+
+h1{
+    font-size: 50px;
+}
+
+h1,h2{
+    color: white;
+    font-family: 'Baloo';
+    text-align: center;
+}
+
+p,div{
+    color: white;
+}
+
+#login-panel,
+#main-app{
+    background-color: transparent;
+}
+
+.container{
+    max-width: 800px;
+    margin: auto;
+}
+
+.content {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 15px 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    height: 100vh;
+}
+
+#login-content h1{
+    text-align: center;
+}
+
+#login-form{
+    display: flex;
+    flex-direction: column;
+}
+
+#new-user,
+#uuid,
+#username{
+    font-size: 14px;
+    color: white !important;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    padding: 15px 15px;
+    text-shadow: none;
+    text-align: center;
+    background-color: transparent; 
+    margin-bottom: 12px;
+}
+
+#new-user::placeholder,
+#uuid::placeholder,
+#username::placeholder{
+    color: rgba(255, 255, 255, 0.445);
+    text-transform: uppercase;
+}
+
+#login-panel-btn2,
+#new-user-btn,
+#login-panel-btn,
+#register,
+#add-btn,
+#login{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgb(130,31,60);
+    border: 2px solid #fff;
+    border-radius: 50px;
+    padding: 15px 15px;
+    text-shadow: none;
+    text-align: center;
+    background-color: #fff; 
+}
+
+#add-btn:hover,
+#login:hover{
+    background-color: transparent;
+    border-color: rgb(130,31,60);
+    color: #fff;
+}
+
+@keyframes loginPanel {
+    0%{
+      opacity: 0;
+    }
+    60%{
+      opacity: 1;
+    }
+  }
+
+  @keyframes loginPanelPI {
+    0%{
+        opacity: 0;
+    }
+    60%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  
+  @keyframes welcomeLoginAnimation {
+    0%{
+      opacity: 0;
+    }
+    60%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+
+  .logo{
+      width: 300px;
+  }
+
+  #new-user .logo,
+  #main-app .logo{
+      width: 100px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  #not-occupied,
+  #queue p,
+  #server-err,
+  #username-err{
+    text-align: center;
+  }
+
+  #login-panel-btn2,
+  #login-panel-btn,
+  #new-user-btn{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }

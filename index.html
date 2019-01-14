@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- <link rel="icon" href="assets/img/favicon.ico"> -->
+
+    <title>occuPIed</title>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <link href="assets/css/style.css" rel="stylesheet">
+
+  </head>
+
+  <body>
+
+    <div id="login-panel">
+    <input type="button" id="new-user-btn" value="New user"></input>
+        <div class="container">
+            <div class="content">
+                <img class="logo" src="assets/img/malinka.png" />
+                <h1>occu<span style="color:rgb(130,31,60)">PI</span>ed</h1>
+                <form id="login-form" action="" method="post">
+                    <input type="text" id="username" placeholder="Username" required></input>
+                    <input type="button" id="login" value="Sign in"></input>
+                    <p class="server-err">Server connection error</p>
+                    <p class="username-err">Wrong username</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-app">
+    <input type="button" id="login-panel-btn2" value="Back"></input>    
+        <div class="container"> 
+            <div class="content">
+                <img class="logo" src="assets/img/malinka.png" />
+                <h1>occu<span style="color:rgb(130,31,60)">PI</span>ed</h1>
+                <p id="not-occupied">Toilet is not occupied</p>
+                <p id="occupied"></p>
+                <h2>Queue</h2>
+                <p id="is-empty">There is nobody in the queue</p>
+                <div id="queue"></div>
+                <input type="button" id="add-btn" value="Add me to queue"></input>
+            </div>
+        </div>
+    </div>
+
+    <div id="new-user-panel">
+    <input type="button" id="login-panel-btn" value="Back"></input>
+        <div class="container">
+            <div class="content">
+                <img class="logo" src="assets/img/malinka.png" />
+                <h2>Add <span style="color:rgb(130,31,60)">new </span>user</h2>
+                <form id="login-form" action="" method="post">
+                    <input type="text" id="new-user" placeholder="Username" required></input>
+                    <input type="text" id="uuid" placeholder="UUID" required></input>
+                    <input type="button" id="register" value="Register"></input>
+                    <p class="server-err">Server connection error</p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script> -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
