@@ -190,6 +190,8 @@ p,div{
       margin-right: auto;
   }
 
+  #is-empty,
+  #occupied,
   #in-queue-err,
   #not-occupied,
   #queue p,

@@ -4,32 +4,36 @@ let username = '';
 let newUser = '';
 let delUser = '';
 let uuid = '';
-let queueState;
+let queueState = [];
+let isOccup = false;
 
 function InfiniteGetData(){
     $.ajax({
         url: URL+'/queue/status',
         success: function(data){
+            queueState = data.queue;
             if(data.occupied != false){
+                isOccup = true;
                 $('#not-occupied').hide();
-                $('#occupied').html(data.occupied);
+                $('#occupied').html(queueState[0]);
                 $('#occupied').show();
             }else{
+                isOccup = false;
                 $('#not-occupied').show();
                 $('#occupied').hide();
             }
-            if(data.queue != [] && queueState != data.queue){
+            if(data.queue != []){
+                $('#is-empty').hide();
                 let queue = (data.queue).map((user)=>{
                     return("<p>"+user+"</p");
                 })
-                $('#is-empty').hide();
+                if(isOccup)queue.shift();
                 $('#queue').html(queue);
                 $('#queue').show();
             }else{
                 $('#is-empty').show();
                 $('#queue').hide();
             }
-            queueState = data.queue;
             console.log(data.queue, queueState);
         },
         error: function(xhr, ajaxOptions, thrownError) {
@@ -105,7 +109,7 @@ function deleteUser(){
         type: 'DELETE',
         url: URL+'/users',
         contentType: "application/json",
-        data: delUser,
+        data: JSON.stringify({ delUser }),
         success: function(data){
             console.log("[ADD]",data);
             $("#delete-user-panel").hide();
@@ -127,7 +131,7 @@ function isOccupied(){
             occupiedData = data;
             if(data.occupied != false){
                 $('#not-occupied').hide();
-                $('#occupied').html(data.occupied);
+                $('#occupied').html('dupooo',queueState[0]);
                 $('#occupied').show();
             }else{
                 $('#not-occupied').show();
