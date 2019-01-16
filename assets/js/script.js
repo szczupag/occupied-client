@@ -109,7 +109,7 @@ function deleteUser(){
         type: 'DELETE',
         url: URL+'/users',
         contentType: "application/json",
-        data: JSON.stringify({ delUser }),
+        data: delUser,
         success: function(data){
             console.log("[ADD]",data);
             $("#delete-user-panel").hide();
