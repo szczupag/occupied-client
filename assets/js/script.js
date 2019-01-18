@@ -1,4 +1,5 @@
 const URL = 'https://occupied-server.herokuapp.com';
+// const URL = 'http://localhost:8080'
 let logged = false;
 let username = '';
 let newUser = '';
@@ -6,6 +7,13 @@ let delUser = '';
 let uuid = '';
 let queueState = [];
 let isOccup = false;
+let modalTime = null;
+let leftTime = 0;
+
+function timeLeftModal(sec){
+    $('#time').html(sec);
+    $('#time-left-modal').show();
+}
 
 function InfiniteGetData(){
     $.ajax({
@@ -22,19 +30,43 @@ function InfiniteGetData(){
                 $('#not-occupied').show();
                 $('#occupied').hide();
             }
-            if(data.queue != []){
+            if(data.queue.length > 0){
                 $('#is-empty').hide();
-                let queue = (data.queue).map((user)=>{
-                    return("<p>"+user+"</p");
+                const firstInQueue = data.queue[0];
+                const queue = data.queue.map((user)=>{
+                    return("<p>"+user+"</p>");
                 })
                 if(isOccup)queue.shift();
+                let secLeft = data.secondsLeft<0 ? 0 : data.secondsLeft;
+                $('#time-left-wrapper').show();
+                $('#time-left').html(secLeft);
+                console.log('queue',queue[0],username);
+                if(firstInQueue==username){
+                    $('#your-turn').show();
+                    if(secLeft == 30 || secLeft == 29){
+                        timeLeftModal(30);
+                        leftTime = secLeft;
+                    } else if(secLeft == 20 || secLeft == 19){
+                        timeLeftModal(20);
+                        leftTime = secLeft;
+                    } else if(secLeft == 10 || secLeft == 9){
+                        timeLeftModal(10);
+                        leftTime = secLeft;
+                    }
+                    if(leftTime - secLeft > 3)$("#time-left-modal").hide();
+                }else{
+                    $('#your-turn').hide();
+                    $("time-left-modal").hide();
+                }
                 $('#queue').html(queue);
                 $('#queue').show();
             }else{
+                $('#your-turn').hide();
                 $('#is-empty').show();
                 $('#queue').hide();
+                $("#time-left-wrapper").hide();
             }
-            console.log(data.queue, queueState);
+            console.log(data);
         },
         error: function(xhr, ajaxOptions, thrownError) {
             alert(thrownError);
@@ -121,38 +153,6 @@ function deleteUser(){
     });
 }
 
-function isOccupied(){
-    $.ajax({
-        type: 'GET',
-        url: URL+'/queue/status',
-        contentType: "application/json",
-        dataType: "json",
-        success: function(data){
-            occupiedData = data;
-            if(data.occupied != false){
-                $('#not-occupied').hide();
-                $('#occupied').html('dupooo',queueState[0]);
-                $('#occupied').show();
-            }else{
-                $('#not-occupied').show();
-                $('#occupied').hide();
-            }
-            if(data.queue != []){
-                $('#is-empty').hide();
-                $('#queue').html(data.queue);
-                $('#queue').show();
-            }else{
-                $('#is-empty').show();
-                $('#queue').hide();
-            }
-            console.log(data.queue);
-        }
-
-    }).fail(function(err){
-        console.log('[GET QUEUE]',err.responseText)
-    })
-}
-
 $(document).ready(function(){
 
     $("#main-app").hide();
@@ -161,6 +161,9 @@ $(document).ready(function(){
     $("#new-user-panel").hide();
     $("#delete-user-panel").hide();
     $("#in-queue-err").hide();
+    $("#time-left-modal").hide();
+    $("#time-left-wrapper").hide();
+    $('#your-turn').hide();
 
     setInterval(()=>{InfiniteGetData()},2000);
 
@@ -199,6 +202,9 @@ $(document).ready(function(){
     $("#delete").click(function(){
         delUser = $('#delete-user').val();
         deleteUser();
+        $("#delete-user-panel").hide();
+        $(".server-err").hide();
+        $("#login-panel").show();
     })
 
     $("#login-panel-btn3").click(function(){

@@ -44,11 +44,17 @@
                 <p id="not-occupied">Toilet is not occupied</p>
                 <p id="occupied"></p>
                 <h2>Queue</h2>
+                <h3 id="your-turn">It's your turn!</h3>
+                <p id="time-left-wrapper">Time left: <span style="color:white" id="time-left"></span></p>
                 <p id="is-empty">There is nobody in the queue</p>
                 <div id="queue"></div>
                 <input type="button" id="add-btn" value="Add me to queue"></input>
                 <p id="in-queue-err">You are already in the queue</p>
             </div>
+        </div>
+        <div id="time-left-modal">
+            <p>Hurry up!</p>
+            <p>You have <span id="time"></span>  seconds to enter the toilet!</p>
         </div>
     </div>
 
@@ -70,18 +76,19 @@
 
     <div id="delete-user-panel">
         <input type="button" id="login-panel-btn3" value="Back"></input>
-            <div class="container">
-                <div class="content">
-                    <img class="logo" src="assets/img/malinka.png" />
-                    <h2><span style="color:rgb(130,31,60)">Delete </span>user</h2>
-                    <form id="login-form" action="" method="post">
-                        <input type="text" id="delete-user" placeholder="Username" required></input>
-                        <input type="button" id="delete" value="Delete"></input>
-                        <p class="server-err">Server connection error</p>
-                    </form>
-                </div>
+        <div class="container">
+            <div class="content">
+                <img class="logo" src="assets/img/malinka.png" />
+                <h2><span style="color:rgb(130,31,60)">Delete </span>user</h2>
+                <form id="login-form" action="" method="post">
+                    <input type="text" id="delete-user" placeholder="Username" required></input>
+                    <input type="button" id="delete" value="Delete"></input>
+                    <p class="server-err">Server connection error</p>
+                </form>
             </div>
         </div>
+    </div>
+    
 
     <!-- <script src="assets/bootstrap/js/bootstrap.min.js"></script> -->
     <script src="assets/js/script.js"></script>

@@ -145,42 +145,9 @@ p,div{
     border-color: rgb(130,31,60);
     color: #fff;
 }
-
-@keyframes loginPanel {
-    0%{
-      opacity: 0;
-    }
-    60%{
-      opacity: 1;
-    }
-  }
-
-  @keyframes loginPanelPI {
-    0%{
-        opacity: 0;
-    }
-    60%{
-      opacity: 0;
-    }
-    100%{
-      opacity: 1;
-    }
-  }
-  
-  @keyframes welcomeLoginAnimation {
-    0%{
-      opacity: 0;
-    }
-    60%{
-      opacity: 0;
-    }
-    100%{
-      opacity: 1;
-    }
-  }
-
   .logo{
-      width: 300px;
+    width: 300px;
+    animation: loginPanel 3s ease;
   }
 
   #new-user .logo,
@@ -213,4 +180,82 @@ p,div{
     position: absolute;
     top: 10px;
     left: 10px;
+  }
+
+  #time-left-wrapper,
+  #your-turn{
+    color:rgb(130,31,60);
+    text-align: center;
+    font-family: 'Baloo';
+  }
+
+  #time-left-wrapper{
+      margin-top: 0;
+  }
+
+  #time-left-modal{
+    height: 200px;
+    position: absolute;
+    top: 40vw;
+    background-color: white;
+    border-radius: 30px;
+    left: 20vw;
+    right: 20vw;
+    box-shadow: 0px 3px 43px 3px #0000008c;
+    color:rgb(130,31,60);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: modalAnimation 1s ease;
+  }
+
+  #time-left-modal p{
+    color:rgb(130,31,60);
+    font-size: 20px;
+    font-family: 'Baloo';
+  }
+
+  @keyframes modalAnimation {
+    0%{
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    100%{
+      opacity: 1;
+      transform: translateY(0%);
+    }
+  }
+
+  @keyframes loginPanel {
+    0%{
+      opacity: 0;
+    }
+    60%{
+      opacity: 1;
+    }
+  }
+
+  @keyframes loginPanelPI {
+    0%{
+        opacity: 0;
+    }
+    60%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
+  }
+  
+  @keyframes welcomeLoginAnimation {
+    0%{
+      opacity: 0;
+    }
+    60%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 1;
+    }
   }
