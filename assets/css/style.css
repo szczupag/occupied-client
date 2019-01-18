@@ -259,3 +259,7 @@ p,div{
       opacity: 1;
     }
   }
+
+  #time-left-modal p:nth-of-type(2){
+    text-align: center;
+  }
