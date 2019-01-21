@@ -71,7 +71,7 @@ p,div{
     width: 300px;
     margin-left: auto;
     margin-right: auto;
-    padding: 15px 50px;
+    /* padding: 15px 50px; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -208,12 +208,14 @@ p,div{
     justify-content: center;
     align-items: center;
     animation: modalAnimation 1s ease;
+    padding: 10px;
   }
 
   #time-left-modal p{
     color:rgb(130,31,60);
     font-size: 20px;
     font-family: 'Baloo';
+    text-align: center;
   }
 
   @keyframes modalAnimation {
@@ -258,8 +260,4 @@ p,div{
     100%{
       opacity: 1;
     }
-  }
-
-  #time-left-modal p:nth-of-type(2){
-    text-align: center;
   }
